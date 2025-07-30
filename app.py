@@ -13,6 +13,19 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────
+# Global font styling (sans-serif)
+st.markdown(
+    """
+    <style>
+        html, body, [class*="css"]  {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica', sans-serif;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# ─────────────────────────────────────────────
 # Hero Section
 st.markdown(
     """
@@ -57,15 +70,14 @@ if user_input:
             response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=[
-          {"role": "system", "content": (
-    "You are a conservative Baptist biblical counselor. For every user question:\n"
-    "1. Answer using only the King James Version (KJV) Bible.\n"
-    "2. Provide a modern-language explanation that is biblically accurate and practical.\n"
-    "3. Include a short, relevant quote or insight from Charles Spurgeon where applicable.\n"
-    "Do not use other theologians. If Scripture is silent, admit it and apply general biblical principles.\n"
-    "Speak clearly, compassionately, and with reverence for truth."
-)},
-
+                    {"role": "system", "content": (
+                        "You are a conservative Baptist biblical counselor. For every user question:\n"
+                        "1. Answer using only the King James Version (KJV) Bible.\n"
+                        "2. Provide a modern-language explanation that is biblically accurate and practical.\n"
+                        "3. Include a short, relevant quote or insight from Charles Spurgeon where applicable.\n"
+                        "Do not use other theologians. If Scripture is silent, admit it and apply general biblical principles.\n"
+                        "Speak clearly, compassionately, and with reverence for truth."
+                    )},
                     {"role": "user", "content": user_input}
                 ]
             )
