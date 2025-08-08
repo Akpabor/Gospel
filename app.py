@@ -65,7 +65,7 @@ st.markdown("*Let the Word of God guide your heart today.*")
 user_input = st.text_input("What would you like to ask?", placeholder="e.g., How do I get closer to God?")
 
 if user_input:
-    with st.spinner("Praying and searching Scripture... 🙏"):
+    with st.spinner("Searching Scripture"):
         try:
             response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
